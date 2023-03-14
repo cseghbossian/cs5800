@@ -18,18 +18,31 @@ public class Main {
         subfolders_source[2] = new Folder("cache");
         subfolders_source[3] = new Folder("public");
 
-        // Create files
+        // Create files of Source Files
         File[] files_source = new File[3];
         files_source[0] = new File(".htaccess");
         files_source[1] = new File("htrouter");
         files_source[2] = new File("index.html");
 
+        // Create subfolders of app
+        Folder[] subfolders_app = new Folder[6];
+        subfolders_app[0] = new Folder("config");
+        subfolders_app[1] = new Folder("controllers");
+        subfolders_app[2] = new Folder("library");
+        subfolders_app[3] = new Folder("migrations");
+        subfolders_app[4] = new Folder("models");
+        subfolders_app[5] = new Folder("views");
+
+        for (Folder subfolder: subfolders_app) {
+            subfolders_source[1].addSubfolder(subfolder);
+        }
+
         for (File file: files_source) {
-            subfolders_source[0].addFile(file);
+            subfolders_root[0].addFile(file);
         }
 
         for (Folder subfolder: subfolders_source) {
-            subfolders_source[0].addSubfolder(subfolder);
+            subfolders_root[0].addSubfolder(subfolder);
         }
 
         // Add the subfolders to the root folder
