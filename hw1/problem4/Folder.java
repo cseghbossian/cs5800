@@ -45,15 +45,14 @@ public class Folder {
     }
 
     // Print
-    public void print() {
-        System.out.println("Folder: " + name);
-        System.out.println("Files:");
+   public void print(String prefix) {
+        System.out.println(prefix + name + "/");
         for (File file : files) {
-            file.print();
+            System.out.println(prefix + " - " + file.getName());
         }
-        System.out.println("Subfolders:");
         for (Folder subfolder : subfolders) {
-            subfolder.print();
+            subfolder.print(prefix + " ");
         }
     }
+    
 }

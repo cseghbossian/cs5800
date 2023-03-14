@@ -20,8 +20,8 @@ public class Main {
 
         // Create files of Source Files
         File[] files_source = new File[3];
-        files_source[0] = new File(".htaccess");
-        files_source[1] = new File("htrouter");
+        files_source[0] = new File(".htaccess.php");
+        files_source[1] = new File("htrouter.php");
         files_source[2] = new File("index.html");
 
         // Create subfolders of app
@@ -51,6 +51,6 @@ public class Main {
         }
 
         // Print the file system
-        root.print();
+        root.print("");
     }
 }
