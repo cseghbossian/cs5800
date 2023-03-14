@@ -1,4 +1,8 @@
+import java.util.*;
+
 public class SalariedEmployee extends Employee {
+
+    // Variables
     private double weeklySalary;
 
     // Constructor
