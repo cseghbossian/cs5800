@@ -55,5 +55,13 @@ public class Main {
 
         // Print the file system
         root.print("");
+
+        System.out.println("\nDeleting app folder...\n");
+        subfolders_root[0].removeSubfolder(subfolders_source[1]);
+        root.print("");
+
+        System.out.println("\nDeleting public folder...\n");
+        subfolders_root[0].removeSubfolder(subfolders_source[3]);
+        root.print("");
     }
 }
