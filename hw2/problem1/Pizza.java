@@ -40,6 +40,6 @@ public class Pizza {
         for (String topping : toppings) {
             System.out.println(topping);
         }
-        System.out.println("Purchased form: " + pizzaChain + "\n");
+        System.out.println("Purchased from: " + pizzaChain + "\n");
     }
 }
