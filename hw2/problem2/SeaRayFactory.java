@@ -8,6 +8,9 @@ public class SeaRayFactory implements BoatFactory {
         if (instance == null) {
             instance = new SeaRayFactory();
         }
+        else {
+            System.out.println("Instance already exists.");
+        }
         return instance;
     }
 

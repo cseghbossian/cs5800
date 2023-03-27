@@ -1,13 +1,14 @@
 class EmbraerFactory implements AirplaneFactory {
     private static EmbraerFactory instance = null;
 
-    private EmbraerFactory() {
-        // private constructor to prevent instances from being created outside of the class
-    }
+    private EmbraerFactory() {}
 
     public static EmbraerFactory getInstance() {
         if (instance == null) {
             instance = new EmbraerFactory();
+        }
+        else {
+            System.out.println("Instance already exists.");
         }
         return instance;
     }

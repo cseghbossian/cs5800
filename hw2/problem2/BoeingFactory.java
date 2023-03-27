@@ -1,13 +1,14 @@
 class BoeingFactory implements AirplaneFactory {
     private static BoeingFactory instance = null;
 
-    private BoeingFactory() {
-        // private constructor to prevent instances from being created outside of the class
-    }
+    private BoeingFactory() {}
 
     public static BoeingFactory getInstance() {
         if (instance == null) {
             instance = new BoeingFactory();
+        }
+        else {
+            System.out.println("Instance already exists.");
         }
         return instance;
     }

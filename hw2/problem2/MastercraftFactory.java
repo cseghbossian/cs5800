@@ -8,6 +8,9 @@ public class MastercraftFactory implements BoatFactory {
         if (instance == null) {
             instance = new MastercraftFactory();
         }
+        else {
+            System.out.println("Instance already exists.");
+        }
         return instance;
     }
 

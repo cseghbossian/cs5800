@@ -1,13 +1,14 @@
 class AirbusFactory implements AirplaneFactory {
     private static AirbusFactory instance = null;
 
-    private AirbusFactory() {
-        // private constructor to prevent instances from being created outside of the class
-    }
+    private AirbusFactory() {}
 
     public static AirbusFactory getInstance() {
         if (instance == null) {
             instance = new AirbusFactory();
+        }
+        else {
+            System.out.println("Instance already exists.");
         }
         return instance;
     }

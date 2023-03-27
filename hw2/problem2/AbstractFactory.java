@@ -26,7 +26,7 @@ class AbstractFactory implements FactoryCreator {
         } else if (factoryName.equalsIgnoreCase("Tesla")) {
             return new TeslaFactory();
         } else {
-            throw new IllegalArgumentException("Invalid car factory name.");
+            Sytem.out.println("Invalid car factory name.");
         }
     }
 
@@ -39,7 +39,7 @@ class AbstractFactory implements FactoryCreator {
         } else if (factoryName.equalsIgnoreCase("Embraer")) {
             return new EmbraerFactory();
         } else {
-            throw new IllegalArgumentException("Invalid ariplane factory name.");
+            Sytem.out.println("Invalid ariplane factory name.");
         }
     }
 
@@ -53,7 +53,7 @@ class AbstractFactory implements FactoryCreator {
         } else if (factoryName.equalsIgnoreCase("Mastercraft")) {
             return new MastercraftFactory();
         } else {
-            throw new IllegalArgumentException("Invalid boat factory name.");
+            Sytem.out.println("Invalid boat factory name.");
         }
     }
 

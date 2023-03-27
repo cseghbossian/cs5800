@@ -2,13 +2,14 @@ class PorscheFactory implements CarFactory {
 
     private static PorscheFactory instance = null;
 
-    private PorscheFactory() {
-        // private constructor to prevent instances from being created outside of the class
-    }
+    private PorscheFactory() {}
 
     public static PorscheFactory getInstance() {
         if (instance == null) {
             instance = new PorscheFactory();
+        }
+        else {
+            System.out.println("Instance already exists.");
         }
         return instance;
     }

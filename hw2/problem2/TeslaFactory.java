@@ -1,13 +1,14 @@
 public class TeslaFactory implements CarFactory {
     private static TeslaFactory instance = null;
 
-    private TeslaFactory() {
-        // private constructor to prevent instances from being created outside of the class
-    }
+    private TeslaFactory() {}
 
     public static TeslaFactory getInstance() {
         if (instance == null) {
             instance = new TeslaFactory();
+        }
+        else {
+            System.out.println("Instance already exists.");
         }
         return instance;
     }

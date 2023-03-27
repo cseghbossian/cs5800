@@ -8,6 +8,9 @@ public class BertramFactory implements BoatFactory {
         if (instance == null) {
             instance = new BertramFactory();
         }
+        else {
+            System.out.println("Instance already exists.");
+        }
         return instance;
     }
 
