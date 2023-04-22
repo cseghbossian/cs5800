@@ -13,11 +13,15 @@
         doc.addCharacter('d', "Arial", 12, "Black");
         doc.addCharacter('C', "Arial", 12, "Black");
         doc.addCharacter('S', "Arial", 12, "Black");
-        doc.addCharacter('5', "Arial", 12, "Black");
-        doc.addCharacter('8', "Arial", 12, "Black");
-        doc.addCharacter('0', "Arial", 12, "Black");
-        doc.addCharacter('0', "Arial", 12, "Black");
+        doc.addCharacter('5', "Comic Sans", 10, "Yellow");
+        doc.addCharacter('8', "Comic Sans", 10, "Yellow");
+        doc.addCharacter('0', "Comic Sans", 10, "Yellow");
+        doc.addCharacter('0', "Comic Sans", 10, "Yellow");
 
         System.out.println(doc.getContent());
+
+        System.out.println("~");
+        
+        System.out.println(doc.getCharacterPropInfo());
     }
 }

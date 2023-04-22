@@ -25,13 +25,29 @@ public class Document {
     public String getContent() {
 
         StringBuilder sb = new StringBuilder();
-        
+
         for (Character character : characters) {
             sb.append(character.getCharacterInfo());
+            sb.append("\n"); // newlines added for readability
         }
 
         return sb.toString();
 
+    }
+
+    public String getCharacterPropInfo() {
+
+        StringBuilder sb = new StringBuilder();
+
+        sb.append("Total number of Character Props: ");
+        sb.append(propsMap.size());
+        sb.append("\n"); 
+
+        for (String key : propsMap.keySet()) {
+            sb.append(key);
+            sb.append("\n");
+        }
+        return sb.toString();
     }
 
     public void saveToFile(String filename) {
