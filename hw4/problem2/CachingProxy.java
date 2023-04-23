@@ -26,11 +26,8 @@ public class CachingProxy implements SongService {
 
         if (song == null) {
 
-            //Query server (imitate high latency)
+            //Query server 
             song = songService.searchById(songID);
-            try {
-                Thread.sleep(1000);
-            } catch (Exception e) {}
 
             // Add to song cache
             songCache.put(songID, song);
@@ -46,11 +43,8 @@ public class CachingProxy implements SongService {
 
         if (songs == null) {
 
-            //Query server (imitate high latency)
+            //Query server
             songs = songService.searchByTitle(title);
-            try {
-                Thread.sleep(1000);
-            } catch (Exception e) {}
 
             // Add to song cache
             titleCache.put(title, songs);
@@ -68,9 +62,6 @@ public class CachingProxy implements SongService {
 
             //Query server (imitate high latency)
             songs = songService.searchByAlbum(album);
-            try {
-                Thread.sleep(1000);
-            } catch (Exception e) {}
 
             // Add to song cache
             albumCache.put(album, songs);
