@@ -4,6 +4,7 @@ import java.util.List;
 public class Main {
 
     public static void main(String[] args) {
+
         // Create some songs
         List<Song> songs = new ArrayList<>();
         Song song1 = new Song("Title 1", "Artist 1", "Album 1", 111, 1111);
@@ -20,30 +21,51 @@ public class Main {
         // Create a real song service 
         SongServiceImpl songService = new SongServiceImpl(songs);
 
+        // Create a song service proxy
+        CachingProxy cachingProxy = new CachingProxy(songService);
+
+        // 
+        // Part A: 
         // Measure the time it takes to search for songs without the proxy
+        //
         long startTime = System.currentTimeMillis();
 
-        Song foundSong = songService.searchById(1);
-        List<Song> foundSongs = songService.searchByTitle("Title 2");
-        foundSongs = songService.searchByAlbum("Album 1");
+        // Search for songs by ID, Title, Album
+        songService.searchById(1115);
+        songService.searchByTitle("Title 2");
+        songService.searchByAlbum("Album 1");
 
         long endTime = System.currentTimeMillis();
         System.out.println("Time without proxy: " + (endTime - startTime) + " ms");
 
+        //
+        // Part B: 
+        // Measure the time it takes to search for songs with the caching proxy
+        // BEFORE any songs have been cached
+        //
+        startTime = System.currentTimeMillis();
+    
+        // Search for songs by ID, Title, Album
+        cachingProxy.searchById(1115);
+        cachingProxy.searchByTitle("Title 2");
+        cachingProxy.searchByAlbum("Album 1");
 
-        // Create a song service proxy
-        CachingProxy cachingProxy = new CachingProxy(songService);
+        endTime = System.currentTimeMillis();
+        System.out.println("Time with proxy before caching: " + (endTime - startTime) + " ms");
 
-        // Search for songs by ID
-        Song foundSongProxy = cachingProxy.searchById(1);
-        System.out.println(foundSongProxy);
+        //
+        // Part C: 
+        // Measure the time it takes to search for songs with the caching proxy
+        // AFTER all songs have been cached
+        //
+        startTime = System.currentTimeMillis();
+    
+        // Search for songs by ID, Title, Album
+        cachingProxy.searchById(1115);
+        cachingProxy.searchByTitle("Title 2");
+        cachingProxy.searchByAlbum("Album 1");
 
-        // Search for songs by title
-        List<Song> foundSongsProxy = cachingProxy.searchByTitle("Title 2");
-        System.out.println(foundSongsProxy); 
-
-        // Search for songs by album
-        foundSongsProxy = cachingProxy.searchByAlbum("Album 1");
-        System.out.println(foundSongsProxy);
+        long endTimeProxy = System.currentTimeMillis();
+        System.out.println("Time with proxy after caching: " + (endTime - startTime) + " ms");
     }
 }
