@@ -22,7 +22,7 @@ public class Message {
         return recipients;
     }
 
-    public String getTimestamp() {
+    public long getTimestamp() {
         return timestamp;
     }
 

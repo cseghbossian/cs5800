@@ -8,7 +8,7 @@ public class ChatServer {
     private Map<String, User> users;
     private Map<User, List<User>> blockedUsers;
 
-    public ChatServer() {=
+    public ChatServer() {
         this.users = new HashMap<>();
         this.blockedUsers = new HashMap<>();
     }

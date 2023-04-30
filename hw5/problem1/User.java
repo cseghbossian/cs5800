@@ -6,13 +6,11 @@ public class User {
     private String name;
     private ChatServer chatServer;
     private ChatHistory chatHistory;
-    private List<MessageMemento> messageHistory;
 
     public User(String name, ChatServer chatServer) {
         this.name = name;
         this.chatServer = chatServer;
         this.chatHistory = new ChatHistory();
-        this.messageHistory = new ArrayList<>();
         this.chatServer.registerUser(this);
     }
 
@@ -20,21 +18,15 @@ public class User {
         Message message = new Message(this, recipients, content);
         this.chatServer.sendMessage(message);
         this.chatHistory.addMessage(message);
-        this.messageHistory.add(new MessageMemento(message.getContent(), message.getTimestamp()));
     }
 
     public void receiveMessage(Message message) {
-        if (!this.chatHistory.containsMessage(message)) {
-            this.chatHistory.addMessage(message);
-        }
+        this.chatHistory.addMessage(message);
+
     }
 
     public void undoLastMessage() {
-        if (!this.messageHistory.isEmpty()) {
-            MessageMemento lastMessage = this.messageHistory.get(this.messageHistory.size() - 1);
-            this.chatHistory.removeLastMessage();
-            this.messageHistory.remove(this.messageHistory.size() - 1);
-        }
+        this.chatHistory.removeLastMessage();
     }
 
     public void blockUser(User user) {
@@ -52,4 +44,10 @@ public class User {
     public ChatHistory getChatHistory() {
         return chatHistory;
     }
+
+    public void viewChatHistory() {
+        System.out.println(chatHistory);
+    }
+
 }
+
